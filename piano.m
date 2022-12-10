@@ -20,7 +20,7 @@ audioFrame = enframe(audio,frame_length,frame_translate); %未加窗
 
 audioFFT = fft(audioFrame')';% fft对列做变换故转置
 
-energy = audioFFT;
+noteEdges = DetectNotes(audioFFT,20,140);
 
 newFFT = 2*audioFFT(:,1:frame_translate/2);
 
